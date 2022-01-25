@@ -17,6 +17,13 @@ h3 {
     font-size: 26px;
 }
 
+#profilepic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
 body {
     padding-top: 20px;
     font-family: 'montserrat', sans-serif;
@@ -47,7 +54,24 @@ header {
     margin-top: 20px;
     background-image: url('../images/box-texture.png');
     align-items: center;
-    height: 200px;
+    min-height: 200px;
+}
+
+.results {
+    background-color: #94D243;
+    padding: 20px;
+}
+
+.results h2 {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-top: 5px;
 }
 
 .search-col1 {
@@ -99,7 +123,6 @@ header {
 
 .searches {
     display: flex;
-    height: 150px;
 }
 
 .col1 {
