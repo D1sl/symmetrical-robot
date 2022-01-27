@@ -1,3 +1,4 @@
+
 var resultListEl = document.querySelector("#resultlist");
 var searchButton = document.querySelector("#run-search");
 var searchInputEl = document.querySelector("#search");
@@ -142,3 +143,18 @@ var getMoviesById = function (id) {
 
 
 searchButton.addEventListener('click', formSubmitHandler);
+var apiUri = "https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch='Bruce_Willis'";
+
+var getActorInfo = function() {
+    fetch(apiUri)
+    .then(function (response) {
+        // request successful
+        if (response.ok) {
+            response.json().then(function (data){
+                console.log(data);
+            })
+        }
+    })
+};
+getActorInfo();
+
