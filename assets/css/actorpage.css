@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+body {
+    background-color: #E8E8E8;
+    font-family: 'montserrat', sans-serif;
+
+}
+
+:root {
+    --primary-green: #94D243;
+}
+
+.logo img {
+    width: 250px;
+}
+
+.branding {
+    width: 1000px;
+    height: 230px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    display: flex;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    padding-top: 40px;
+    background-color: var(--primary-green);
+
+}
+
+main {
+    margin-top: -130px;
+}
+
+.card {
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5); 
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.left {
+    flex: 1 300px;
+}
+
+.right {
+    flex: 2 700px;
+}
+
+.profile {
+    background-color: white;
+    margin-right: 20px;
+    flex: 1 300px;
+}
+
+.details {
+    flex: 2 700px;
+}
+
+.profilepic {
+    height: 400px;
+    background-image: url(https://image.tmdb.org/t/p/w200/caX3KtMU42EP3VLRFFBwqIIrch5.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.cardcontent {
+    padding: 20px;
+}
+
+h3 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 13px;
+}
+
+.movies {
+    margin-top: 15px;
+    list-style: none;    
+    display: flex;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.cardcontent li {
+    margin-bottom: 10px;
+}
+
+.movieitem {
+    padding-right: 30px;
+}
