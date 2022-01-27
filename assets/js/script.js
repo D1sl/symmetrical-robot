@@ -1,11 +1,13 @@
+
 var resultListEl = document.querySelector("#resultlist");
 var searchButton = document.querySelector("#run-search");
 var searchInputEl = document.querySelector("#search");
 var actorNameEl = document.querySelector("#actorname");
 var actorProfileEl = document.querySelector("#actorimg");
+var actorDescriptionEl = document.querySelector("#description")
 
 var pageNumber = 1;
-var actorSearchTerm = "Bruce"
+var actorSearchTerm = ""
 var actorProfile;
 
 var apiUrl = 'https://api.themoviedb.org/3/search/person?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&query=' + actorSearchTerm + '&page=1';
@@ -29,6 +31,7 @@ var formSubmitHandler = function (event) {
 
     if (searchTerm) {
         getActorId(searchTerm);
+        getActorInfo(searchTerm)
     } else {
         alert("Please enter a search term");
     }
@@ -142,3 +145,34 @@ var getMoviesById = function (id) {
 
 
 searchButton.addEventListener('click', formSubmitHandler);
+
+
+var getActorInfo = function(searchTerm) {
+    var apiUri = "https://en.wikipedia.org/w/api.php?action=query&origin=*&prop=extracts&exsentences=10&exlimit=1&titles=" + searchTerm + "&explaintext=1&format=json";
+
+    fetch(apiUri)
+    .then(function (response) {
+        // request successful
+        if (response.ok) {
+            response.json().then(function (data){
+                console.log(data);
+                
+            })
+        }
+    })
+};
+
+var getActorById = function(pageId) {
+    var apiUrl = "https://en.wikipedia.org/w/api.php?origin=*&format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&pageids=" + pageId;
+
+    fetch(apiUrl)
+    .then(function (response) {
+        // request successful
+        if (response.ok) {
+            response.json().then(function (data){
+                console.log(data);
+                
+            })
+        }
+    })
+}
