@@ -17,6 +17,15 @@ h3 {
     font-size: 26px;
 }
 
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: bolder;
+}
+
 .branding img {
     width: 250px;
 }
@@ -113,17 +122,46 @@ li {
 }
 
 .col1 .heading {
-    display: block;
+    display: flex;
     background-color: #AE50DA;
+    margin-bottom: 10px;
+}
+
+.worsttitle {
+    font-size: 25px;
+}
+
+.review {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+#genre {
+    background-color: #7f39a0;
+    padding: 0px 3px 0px 3px;
+    margin: 0px 5px 0px 5px;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 26px;
+    margin-bottom: 10px;
     float: left;
+    font-weight: bolder;
+}
+
+.content {
     padding: 5px;
+}
+
+.mflops {
+    background-color: #AE50DA;
 }
 
 .col2 .heading {
     display: block;
     background-color: #56D3E4;
     float: left;
-    padding: 5px;
 }
 
 .search-col2 {
@@ -144,7 +182,7 @@ li {
 .col1 {
     padding: 20px;
     margin-right: 20px;
-    flex: 1 35%;
+    flex: 1 50%;
     background-color: #AE50DA;
     color: white;
     border-radius: 10px;
@@ -154,9 +192,20 @@ li {
     background-image: url('../images/box-texture.png');
 }
 
+
+
+.item {
+    margin: 5px;
+    display: flex;
+}
+
+.itemdetails {
+    margin-left: 10px;
+}
+
 .col2 {
     padding: 20px;
-    flex: 2 65%;
+    flex: 2 50%;
     background-color: #56D3E4;
     color: white;
     border-radius: 10px;

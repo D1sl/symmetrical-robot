@@ -24,37 +24,58 @@
             </div>
         </div>
     </header>
-        <main>
-            <div class="container">
-                <section class="hero">
-                    <div class="search-col1">
-                        <div class="heading">
-                            <h2>Search for sad statistics from thousands of <span>actors and movies</span></h2>
-                        </div>
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="search-col1">
+                    <div class="heading">
+                        <h2>Search for sad statistics from thousands of <span>actors and movies</span></h2>
+                    </div>
 
-                        <form action="submit">
-                            <input type="text" id="search"></input>
-                            <button type="submit" id="run-search">Search</button>
-                        </form>
-                    </div>
-                    <div class="search-col2">
+                    <form action="submit">
+                        <input type="text" id="search"></input>
+                        <button type="submit" id="run-search">Search</button>
+                    </form>
+                </div>
+                <div class="search-col2">
 
-                    </div>
-                </section>
-                <section class="searches">
-                    <div class="col1">
-                        <div class="heading">
-                            <h3>Movie flops by <span>Genre</span></h3>
-                        </div>
-                    </div>
-                    <div class="col2">
-                        <div class="heading">
-                            <h3>Saddest actors of <span>2021</span></h3>
-                        </div>
-                    </div>
-            </div>
+                </div>
             </section>
-        </main>
+            <section class="searches">
+                <div class="col1">
+                    <div class="content mflops">
+                        <div class="heading">
+                                <h3 class="first">Worst</h3>
+                                <select name="genre" class="middle" id="genre">
+                                    <option value="action">action</option>
+                                    <option value="adventure">adventure</option>
+                                    <option value="comedy">comedy</option>
+                                    <option value="drama">drama</option>
+                                    <option value="horror">horror</option>
+                                    <option value="scifi">sci-fi</option>
+                                    <option value="thriller">thriller</option>
+                                </select>
+                                <h3 class="last"> movie of 2021</h3>
+                        </div>
+                        <div class="item">
+                            <div class="poster">
+                                <img src="https://image.tmdb.org/t/p/w154/6Wm7P6y22UZA40QuPYHyWyJ6leI.jpg">
+                            </div>
+                            <div class="itemdetails">
+                                <h5 class="worsttitle" id="actionflopheader">Cosmic Sin</h5>
+                                <p class="review">"Just. Don't. Watch. You have been warned."</p>
+                                <p id="actionfloprating">Rating: 4.3</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div class="heading">
+                        <h3>Saddest actors of <span>2021</span></h3>
+                    </div>
+                </div>
+            </section>
+    </main>
     <script src="./assets/js/script.js"></script>
 </body>
 
