@@ -72,7 +72,6 @@ main {
 
 .profilepic {
     height: 400px;
-    background-image: url(https://image.tmdb.org/t/p/w500/caX3KtMU42EP3VLRFFBwqIIrch5.jpg);
     background-size: cover;
     background-position: center;
 }
