@@ -57,6 +57,8 @@ header {
     min-height: 200px;
 }
 
+
+
 .results {
     background-color: #94D243;
     padding: 20px;
@@ -94,6 +96,16 @@ li {
     margin-top: 20px;
     font-size: 20px;
     font-weight: bolder;
+}
+
+.hero button {
+    border-style: solid;
+    border-color: black;
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: white;
 }
 
 .col1 .heading {
