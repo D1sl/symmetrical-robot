@@ -17,6 +17,10 @@ h3 {
     font-size: 26px;
 }
 
+.branding img {
+    width: 250px;
+}
+
 #profilepic {
     width: 200px;
     height: 200px;
