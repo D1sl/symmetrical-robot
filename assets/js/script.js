@@ -21,7 +21,7 @@ var sendSearch = function (event) {
 var getMoviesByGenre = function (event) {
     var genre = genreListEl.value;
 
-    var apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&primary_release_year=2021&vote_count.gte=30&with_genres=' + genre + '&with_watch_monetization_types=flatrate';
+    var apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&sort_by=vote_average.asc&include_adult=false&include_video=false&page=1&primary_release_year=2021&vote_count.gte=10&with_genres=' + genre + '&with_watch_monetization_types=flatrate&with_original_language=en';
 
     console.log(genre);
     console.log(apiUrl);
@@ -32,10 +32,28 @@ var getMoviesByGenre = function (event) {
         })
         .then(function (data) {
             console.log(data);
+
+            var movieId = data.results[0].id
+
+            var apiUrl = 'https://api.themoviedb.org/3/movie/' + movieId + '/reviews?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&page=1'
+            console.log(apiUrl);
+
+            fetch(apiUrl).then(function(res) {
+                return res.json()
+            })
+            .then(function(data) {
+                console.log(data);
+                if (data.results.length > 0) {
+                    document.querySelector(".review").textContent = data.results[0].content;
+                } else {
+                    document.querySelector(".review").textContent = "";
+                }
+            })
             
 
-            document.querySelector("#actionflopheader").textContent = data.results[0].title;
+            document.querySelector("#flopheader").textContent = data.results[0].title;
             document.querySelector("#worstimage").setAttribute('src', 'https://image.tmdb.org/t/p/w154' + data.results[0].poster_path);
+            document.querySelector("#floprating").textContent = data.results[0].vote_average;
 
         })
 
