@@ -16,7 +16,7 @@ var getActorId = function () {
                     console.log(actorId);
                     getResults(actorId);
                     getMoviesById(actorId);
-
+                    getActorMovies();
                 })
             }
 
@@ -139,6 +139,6 @@ var getActorMovies = function () {
         }
     })
 }
-getActorMovies();
+
 getActorId();
 
