@@ -1,6 +1,6 @@
 var searchQuery = window.location.href.split("=")[1];
 console.log(searchQuery);
-
+var actorId
 
 
 
@@ -12,7 +12,7 @@ var getActorId = function () {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data)
-                    var actorId = data.results[0].id
+                    actorId = data.results[0].id
                     console.log(actorId);
                     getResults(actorId);
                     getMoviesById(actorId);
@@ -125,7 +125,7 @@ var getMoviesById = function (id) {
         });
 };
 var getActorMovies = function () {
-    var apiUrl = "https://api.themoviedb.org/3/discover/movie?api_key=c930372b21a65386f628c5e6b7d65d66&vote_count.gte=1&language=en-US&sort_by=vote_average.asc&include_adult=false&page=1&with_people=62";
+    var apiUrl = "https://api.themoviedb.org/3/discover/movie?api_key=c930372b21a65386f628c5e6b7d65d66&vote_count.gte=1&language=en-US&sort_by=vote_average.asc&include_adult=false&page=1&with_people=" + actorId;
 
     fetch(apiUrl) 
     .then(function (response){
