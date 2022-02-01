@@ -1,6 +1,7 @@
 var searchQuery = window.location.href.split("=")[1];
 console.log(searchQuery);
 var actorId
+var movieId
 var resultListEl = document.querySelector("#resultlist");
 
 
@@ -17,7 +18,7 @@ var getActorId = function () {
                     getResults(actorId);
                     getMoviesById(actorId);
                     getActorMovies();
-                    getStreamOption();
+                    
                 })
             }
         })
@@ -56,15 +57,15 @@ var getMoviesById = function (id) {
         .then(function (response) {
             // request successful
             if (response.ok) {
-
+                
                 response.json().then(function (data) {
-
+                       
                     // Variable to store the count of results
                     var resultCounter = 1;
                     for (var i = 0; i < data.results.length; i++) {
                         if (data.results[i].vote_count > 0) {
-
-                            //
+                        var movieId = data.results[i].id
+                            
                             // Increment amount of results by one
                             var resListEl = document.createElement('li');
                             resListEl.textContent = "✔️ " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
@@ -74,7 +75,7 @@ var getMoviesById = function (id) {
                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
 
                             };
-
+                        
                             resultListEl.appendChild(resListEl);
                             resultCounter++
                         };
@@ -96,6 +97,7 @@ var getMoviesById = function (id) {
                                 // request successful
                                 if (response.ok) {
                                     response.json().then(function (data) {
+                                        
 
                                         for (var i = 0; i < data.results.length; i++) {
                                             
@@ -108,12 +110,15 @@ var getMoviesById = function (id) {
 
                                             };
 
+                                            
+                                            console.log(movieId)
 
+                                            getStreamOption(movieId);
                                             resultListEl.appendChild(resListEl);
 
                                             console.log(data.results[i].title);
                                             resultCounter++
-                                        
+                                      
                                         };
                                     });
                                 };
@@ -138,29 +143,21 @@ var getActorMovies = function () {
             })
         }
     })
+  
 }
 
 var getStreamOption = function() {
-    var apiUrl = "https://api.themoviedb.org/3/movie/345934/watch/providers?api_key=c930372b21a65386f628c5e6b7d65d66";
-    console.log(apiUrl);
-    
+    var apiUrl = "https://api.themoviedb.org/3/movie/" + movieId + "/watch/providers?api_key=c930372b21a65386f628c5e6b7d65d66";
     fetch(apiUrl)
-    .then(function (response) {
-        if(response.ok) {
-            response.json().then(function(data) {
-            console.log(data)
-            var resListEl = document.createElement('li');
-            resListEl.textContent = "Watch Now: " + data.results.US.rent[1].provider_name;
-            resultListEl.appendChild(resListEl)
-
-             console.log(data.results.US.rent[0].provider_name)
+    .then(function(response){
+      if(response.ok) {
+            response.json().then(function(data){
+                //for (var i = 0; i < data.results.length; i++) {
+                console.log(data.results.US.rent[0].provider_name)
+                //}
             })
         }
-    })
-   
+   })
 }
 
 getActorId();
-
-
-
