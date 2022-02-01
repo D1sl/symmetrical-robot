@@ -214,3 +214,7 @@ li {
     border-color: black;
     background-image: url('../images/box-texture.png');
 }
+
+.millfalcon {
+    width: 100%;
+}

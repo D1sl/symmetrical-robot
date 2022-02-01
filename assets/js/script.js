@@ -60,6 +60,23 @@ var getMoviesByGenre = function (event) {
         worstItemEl.setAttribute('style', "display: flex");
 };
 
+var getQuote = function () {
+    var apiUrl = "https://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote";
+
+    fetch(apiUrl)
+    .then(function (res) {
+        return res.json()
+    })
+    .then(function (data) {
+        console.log(data.content); 
+        document.querySelector(".quote").textContent = data.content
+
+    })
+    
+}
+
+getQuote();
+
 // When an option on the list is selected
 genreListEl.addEventListener('change', getMoviesByGenre);
 
