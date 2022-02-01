@@ -1,5 +1,4 @@
 var searchQuery = window.location.href.split("=")[1];
-console.log(searchQuery);
 var actorId
 var movieId
 var resultListEl = document.querySelector("#resultlist");
@@ -7,14 +6,11 @@ var resultListEl = document.querySelector("#resultlist");
 
 var getActorId = function () {
     var apiUrl = 'https://api.themoviedb.org/3/search/person?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&query=' + searchQuery + '&page=1';
-    console.log(apiUrl)
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data)
                     actorId = data.results[0].id
-                    console.log(actorId);
                     getResults(actorId);
                     getMoviesById(actorId);
                     getActorMovies();
@@ -31,7 +27,6 @@ var getResults = function (search) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data)
                     var actorImage = data.profile_path
                     document.querySelector("#bio").textContent = data.biography;
                     document.getElementById('profilepic').style.background = 'url(https://image.tmdb.org/t/p/w300' + actorImage + ')';
@@ -49,7 +44,6 @@ var getMoviesById = function (id) {
     
 
     var apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&sort_by=vote_average.asc&include_adult=false&page=' + pageNumber + '&with_people=' + id;
-    console.log(apiUrl);
 
 
 
@@ -77,6 +71,7 @@ var getMoviesById = function (id) {
                             };
                         
                             resultListEl.appendChild(resListEl);
+                            getStreamOption(data.results[i].id, data.results[i].title);
                             resultCounter++
                         };
                     };
@@ -111,12 +106,9 @@ var getMoviesById = function (id) {
                                             };
 
                                             
-                                            console.log(movieId)
 
-                                            getStreamOption(movieId);
                                             resultListEl.appendChild(resListEl);
 
-                                            console.log(data.results[i].title);
                                             resultCounter++
                                       
                                         };
@@ -137,7 +129,6 @@ var getActorMovies = function () {
         if(response.ok) {
             response.json().then(function (data) {
                 for(var i=0; i < 6; i++) {
-                    console.log(data)
                     document.getElementById(`movieflop${i}`).setAttribute("src",`https://image.tmdb.org/t/p/w92${data.results[i].poster_path}`)
                 }
             })
@@ -146,18 +137,23 @@ var getActorMovies = function () {
   
 }
 
-var getStreamOption = function() {
-    var apiUrl = "https://api.themoviedb.org/3/movie/" + movieId + "/watch/providers?api_key=c930372b21a65386f628c5e6b7d65d66";
-    fetch(apiUrl)
-    .then(function(response){
-      if(response.ok) {
-            response.json().then(function(data){
-                //for (var i = 0; i < data.results.length; i++) {
-                console.log(data.results.US.rent[0].provider_name)
-                //}
-            })
-        }
-   })
-}
+// Each time a new movie is pushed to the page, take that ID and pass it to the getStreamOption -function together with the movie name
+
+
+// Search for streaming services
+// var getStreamOption = function(movieId, title) {
+//     var apiUrl = "https://api.themoviedb.org/3/movie/" + movieId + "/watch/providers?api_key=c930372b21a65386f628c5e6b7d65d66";
+//     fetch(apiUrl)
+//     .then(function(response){
+//       if(response.ok) {
+//             response.json().then(function(data){                
+//                 for (var i = 0; i < data.results.US.flatrate.length; i++) {
+//                 console.log(data.results.US.flatrate[i].provider_name);
+//                 console.log(title);
+//             }
+//             })
+//         }
+//    })
+// }
 
 getActorId();
