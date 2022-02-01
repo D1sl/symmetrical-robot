@@ -1,6 +1,7 @@
 var searchQuery = window.location.href.split("=")[1];
 console.log(searchQuery);
 var actorId
+var sourAmount = 0;
 
 
 
@@ -72,6 +73,12 @@ var getMoviesById = function (id) {
                             if (data.results[i].vote_average < 5) {
                                 resListEl.className = "sour";
                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
+                                sourAmount++
+                                console.log(sourAmount)
+
+                                if (sourAmount > 5) {
+                                    document.querySelector(".soursticker").setAttribute("style", "display: block")
+                                }
 
                             };
 
@@ -103,8 +110,13 @@ var getMoviesById = function (id) {
                                             resListEl.textContent = "✔️ " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                                             if (data.results[i].vote_average < 5) {
+                                                sourAmount++
                                                 resListEl.className = "sour";
                                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
+
+                                                if (sourAmount > 5) {
+                                                    document.querySelector(".soursticker").setAttribute("style", "display: block")
+                                                }
 
                                             };
 

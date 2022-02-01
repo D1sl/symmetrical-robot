@@ -114,3 +114,16 @@ ul {
 .movieitem {
     padding-right: 30px;
 }
+
+.soursticker {
+    display: none;
+    overflow: visible;
+    position: relative;
+    top: 255px;
+    left: -130px;
+}
+
+.soursticker img {
+    position: absolute;
+    width: 250px;
+}
