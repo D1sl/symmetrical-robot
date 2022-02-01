@@ -71,7 +71,7 @@ var getMoviesById = function (id) {
                             };
                         
                             resultListEl.appendChild(resListEl);
-                            getStreamOption(data.results[i].id, data.results[i].title);
+                            // getStreamOption(data.results[i].id, data.results[i].title);
                             resultCounter++
                         };
                     };
@@ -138,6 +138,9 @@ var getActorMovies = function () {
 }
 
 // Each time a new movie is pushed to the page, take that ID and pass it to the getStreamOption -function together with the movie name
+
+
+// Also check LINE 74 that the call for this function is not commented out
 
 
 // Search for streaming services
