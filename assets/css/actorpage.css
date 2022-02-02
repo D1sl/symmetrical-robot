@@ -120,10 +120,9 @@ ul {
 
 .soursticker {
     display: none;
-    overflow: visible;
     position: relative;
     top: 255px;
-    left: -130px;
+    left: -70px;
     z-index: 2;
 }
 
@@ -139,4 +138,8 @@ ul {
 .okay:hover {
     background-color: #AE50DA;
     color: white;
+}
+.movies img:hover {
+    width: 120px;
+    height: 170px;
 }
