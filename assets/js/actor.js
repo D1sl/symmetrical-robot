@@ -32,10 +32,11 @@ var getResults = function (search) {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data)
-                    var actorImage = data.profile_path
+                    var actorImage = data.profile_path;
                     document.querySelector("#bio").textContent = data.biography;
                     document.getElementById('profilepic').style.background = 'url(https://image.tmdb.org/t/p/w300' + actorImage + ')';
-                    document.getElementById('profilepic').style.backgroundPosition = "center";
+                    document.getElementById('profilepic').style.backgroundPosition = "center"
+                    document.getElementById('profilepic').style.backgroundRepeat = "no-repeat"
                 })
             }
 
@@ -71,7 +72,7 @@ var getMoviesById = function (id) {
                             resListEl.textContent = "✔️ " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                             if (data.results[i].vote_average < 5) {
-                                resListEl.className = "sour";
+                                resListEl.className = "sour rounded-pill fs-5";
                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
                                 sourAmount++
                                 console.log(sourAmount)
@@ -107,15 +108,16 @@ var getMoviesById = function (id) {
                                         for (var i = 0; i < data.results.length; i++) {
                                             
                                             var resListEl = document.createElement('li');
+                                            resListEl.className = " okay rounded-pill fs-5"
                                             resListEl.textContent = "✔️ " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                                             if (data.results[i].vote_average < 5) {
                                                 sourAmount++
-                                                resListEl.className = "sour";
+                                                resListEl.className = "sour rounded-pill fs-5";
                                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
 
                                                 if (sourAmount > 5) {
-                                                    document.querySelector(".soursticker").setAttribute("style", "display: block")
+                                                    document.querySelector(".soursticker").setAttribute("style", "display: flex")
                                                 }
 
                                             };

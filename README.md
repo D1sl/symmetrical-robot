@@ -8,6 +8,8 @@ On the landing page users are also able to choose a genre from a dropdown menu, 
 Lastly, we've incorporated fun Star Wars quotes onto the landing page for fun.
 ## Demo
 ________________
+<img src = "./assets/images/Sour Stats (1).gif">
+
 ## Contributors
 ________________
 Benjamin Molini Vilhunun
