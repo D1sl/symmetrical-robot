@@ -34,6 +34,7 @@ var getResults = function (search) {
                     console.log(data)
                     var actorImage = data.profile_path;
                     document.querySelector("#bio").textContent = data.biography;
+                    document.getElementById('bio').style.fontSize = "15px"
                     document.getElementById('profilepic').style.background = 'url(https://image.tmdb.org/t/p/w300' + actorImage + ')';
                     document.getElementById('profilepic').style.backgroundPosition = "center"
                     document.getElementById('profilepic').style.backgroundRepeat = "no-repeat"
@@ -69,10 +70,10 @@ var getMoviesById = function (id) {
                             //
                             // Increment amount of results by one
                             var resListEl = document.createElement('li');
-                            resListEl.textContent = "✔️ " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
+                            resListEl.textContent = "😊 " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                             if (data.results[i].vote_average < 5) {
-                                resListEl.className = "sour rounded-pill fs-5";
+                                resListEl.className = "sour p-2 rounded-pill fs-5";
                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
                                 sourAmount++
                                 console.log(sourAmount)
@@ -108,12 +109,12 @@ var getMoviesById = function (id) {
                                         for (var i = 0; i < data.results.length; i++) {
                                             
                                             var resListEl = document.createElement('li');
-                                            resListEl.className = " okay rounded-pill fs-5"
-                                            resListEl.textContent = "✔️ " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
+                                            resListEl.className = " okay p-2 rounded-pill fs-5"
+                                            resListEl.textContent = " 😊 " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                                             if (data.results[i].vote_average < 5) {
                                                 sourAmount++
-                                                resListEl.className = "sour rounded-pill fs-5";
+                                                resListEl.className = "sour p-2 rounded-pill fs-5";
                                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
 
                                                 if (sourAmount > 5) {
