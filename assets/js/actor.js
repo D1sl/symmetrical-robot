@@ -30,6 +30,7 @@ var getResults = function (search) {
                 response.json().then(function (data) {
                     var actorImage = data.profile_path
                     document.querySelector("#bio").textContent = data.biography;
+                    document.getElementById('bio').style.fontSize = "15px"
                     document.getElementById('profilepic').style.background = 'url(https://image.tmdb.org/t/p/w300' + actorImage + ')';
                     document.getElementById('profilepic').style.backgroundPosition = "center";
                     document.getElementById('profilepic').style.backgroundSize = "cover";
@@ -72,10 +73,10 @@ var getMoviesById = function (id) {
                             //
                             // Increment amount of results by one
                             var resListEl = document.createElement('li');
-                            resListEl.textContent = "✔️ " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
+                            resListEl.textContent = "😊 " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                             if (data.results[i].vote_average < 5) {
-                                resListEl.className = "sour";
+                                resListEl.className = "sour p-2 rounded-pill fs-5";
                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
                                 sourAmount++
 
