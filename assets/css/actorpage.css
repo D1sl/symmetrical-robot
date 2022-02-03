@@ -3,12 +3,11 @@
     margin: 0;
     padding: 0;
     font-weight: normal;
-    flex-wrap: wrap;
 }
 
 body {
     background-color: #E8E8E8;
-    font-family: 'montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 :root {
@@ -20,21 +19,25 @@ body {
 }
 
 .branding {
-    width: 1000px;
+    width: 1140px;
     height: 230px;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .container {
     display: flex;
-    width: 1000px;
+    width: 1140px;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 header {
-    padding-top: 40px;
+    padding-top: 20px;
     background-color: var(--primary-green);
 
 }
@@ -49,7 +52,7 @@ main {
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5); 
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-    
+    overflow: hidden;
 }
 
 .left {
@@ -75,11 +78,8 @@ main {
 
 #profilepic {
     height: 400px;
-    background-image: url(https://image.tmdb.org/t/p/w500/caX3KtMU42EP3VLRFFBwqIIrch5.jpg);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
-
-    z-index: 1;
 }
 
 .cardcontent {
@@ -124,19 +124,9 @@ ul {
     position: relative;
     top: 255px;
     left: -130px;
-    z-index: 2;
 }
 
 .soursticker img {
     position: absolute;
     width: 250px;
-    z-index: 3;
-}
-.sour:hover {
-    background-color: #AE50DA;
-    color: white;
-}
-.okay:hover {
-    background-color: #AE50DA;
-    color: white;
 }
