@@ -121,8 +121,16 @@ li {
 
 .col1 .heading {
     display: flex;
-    background-color: #AE50DA;
     margin-bottom: 10px;
+}
+
+.col1 h3 {
+    background-color: #AE50DA;
+    margin-bottom: 0px;
+}
+
+.gentitle {
+    margin-bottom: 0px;
 }
 
 .worsttitle {
@@ -143,17 +151,12 @@ li {
     border-radius: 5px;
     color: white;
     font-size: 26px;
-    margin-bottom: 10px;
     float: left;
     font-weight: bolder;
 }
 
 .content {
     padding: 5px;
-}
-
-.mflops {
-    background-color: #AE50DA;
 }
 
 .col2 .heading {
@@ -170,13 +173,13 @@ li {
 }
 
 .col1 {
-    background-color: #AE50DA;
     color: white;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
     border-color: black;
     background-image: url('../images/box-texture.png');
+    background-color: #AE50DA;
 }
 
 
