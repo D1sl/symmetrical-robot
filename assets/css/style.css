@@ -19,6 +19,10 @@ h5 {
     font-weight: bolder;
 }
 
+.container {
+    max-width: 1140px;
+}
+
 .branding img {
     width: 250px;
 }
@@ -40,12 +44,6 @@ body {
 span {
     font-weight: bolder;
     margin-top: 0px;
-}
-
-header {
-    color: black;
-    padding-right: 100px;
-    padding-left: 100px;
 }
 
 .hero {
@@ -88,10 +86,10 @@ li {
     flex: 1 600px;
 }
 
-.row {
+/* .row {
     padding-right: 70px;
     padding-left: 70px;
-}
+} */
 
 .hero .heading {
     display: block;
@@ -161,7 +159,6 @@ li {
 .col2 .heading {
     display: block;
     background-color: #56D3E4;
-    float: left;
 }
 
 .search-col2 {
@@ -173,9 +170,6 @@ li {
 }
 
 .col1 {
-    padding: 20px;
-    margin-right: 20px;
-    flex: 1 50%;
     background-color: #AE50DA;
     color: white;
     border-radius: 10px;
