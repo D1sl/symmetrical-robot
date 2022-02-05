@@ -73,7 +73,7 @@ var getMoviesById = function (id) {
                             resListEl.textContent = "😊 " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                             if (data.results[i].vote_average < 5) {
-                                resListEl.className = "sour p-2 rounded-pill fs-5";
+                                resListEl.className = "sour p-2 rounded-pill fs-5 list-group-item";
                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
                                 sourAmount++
                                 console.log(sourAmount)
@@ -109,12 +109,12 @@ var getMoviesById = function (id) {
                                         for (var i = 0; i < data.results.length; i++) {
                                             
                                             var resListEl = document.createElement('li');
-                                            resListEl.className = " okay p-2 rounded-pill fs-5"
+                                            resListEl.className = " okay p-2 rounded-pill fs-5 list-group-item"
                                             resListEl.textContent = " 😊 " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                                             if (data.results[i].vote_average < 5) {
                                                 sourAmount++
-                                                resListEl.className = "sour p-2 rounded-pill fs-5";
+                                                resListEl.className = "sour p-2 rounded-pill fs-5 list-group-item";
                                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
 
                                                 if (sourAmount > 5) {
