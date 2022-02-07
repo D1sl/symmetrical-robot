@@ -56,7 +56,6 @@ header {
 .hero {
     display: flex;
     background-color: #94D243;
-    padding: 20px 0px 20px 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     border-width: 2px;
@@ -87,10 +86,6 @@ ul {
 
 li {
     margin-top: 5px;
-}
-
-.search-col1 {
-    flex: 1 800px;
 }
 
 .hero .heading {
@@ -127,6 +122,10 @@ li {
     margin-bottom: 10px;
 }
 
+.worstgenres {
+    background-color: #AE50DA;
+}
+
 .heading h3 {
     font-size: 20px;
 }
@@ -159,22 +158,26 @@ li {
 }
 
 .mflops {
-    background-color: #AE50DA;
+    /* background-color: #AE50DA; */
 }
 
 .col2 .heading {
     display: block;
     background-color: #56D3E4;
-    float: left;
 }
 
 .search-col2 {
-    flex: 2 200px;
-    margin-left: 30px;
+    text-align: right;
+    padding-right: 0px;
 }
 
 .search-col2 img {
     width: 300px;
+}
+
+.revlinktext {
+    color: white;
+    text-decoration: underline;
 }
 
 .container {
@@ -189,9 +192,6 @@ li {
 }
 
 .col1 {
-    padding: 20px;
-    margin-right: 20px;
-    flex: 1 50%;
     background-color: #AE50DA;
     color: white;
     border-radius: 10px;
@@ -216,8 +216,6 @@ li {
 }
 
 .col2 {
-    padding: 20px;
-    flex: 2 50%;
     background-color: #56D3E4;
     color: white;
     border-radius: 10px;

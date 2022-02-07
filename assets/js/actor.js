@@ -55,7 +55,7 @@ var getMoviesById = function (id) {
 
     var apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&sort_by=vote_average.asc&vote_count.gte=5&include_adult=false&page=' + pageNumber + '&with_people=' + actorId;
 
-    console.log(apiUrl)
+    console.log(apiUrl);
 
     fetch(apiUrl)
         .then(function (response) {
@@ -76,7 +76,7 @@ var getMoviesById = function (id) {
                             resListEl.textContent = "😊 " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                             if (data.results[i].vote_average < 5) {
-                                resListEl.className = "sour p-2 rounded-pill fs-5";
+                                resListEl.className = "sour p-2 rounded-pill fs-5 list-group-item";
                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
                                 sourAmount++
 
@@ -109,11 +109,12 @@ var getMoviesById = function (id) {
                                         for (var i = 0; i < data.results.length; i++) {
                                             
                                             var resListEl = document.createElement('li');
-                                            resListEl.textContent = "✔️ " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
+                                            resListEl.className = " okay p-2 rounded-pill fs-5 list-group-item"
+                                            resListEl.textContent = " 😊 " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                                             if (data.results[i].vote_average < 5) {
                                                 sourAmount++
-                                                resListEl.className = "sour";
+                                                resListEl.className = "sour p-2 rounded-pill fs-5 list-group-item";
                                                 resListEl.textContent = "🤮 " + data.results[i].title + ", Rating: " + data.results[i].vote_average + " - It's sour!";
 
                                                 if (sourAmount > 10) {
@@ -156,4 +157,3 @@ var getActorMovies = function () {
 getMoviesById();
 getActorMovies();
 getResults(actorId);
-
