@@ -158,20 +158,23 @@ var getMoviesByGenre = function (event) {
 };
 
 var getQuote = function () {
-    var apiUrl = "https://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote";
+    var apiUrl = "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=&api-key=jMwUb9k2ba7NgHXwScLeG5BBRWgggomO";
 
     fetch(apiUrl)
     .then(function (res) {
         return res.json()
     })
     .then(function (data) {
-        console.log(data.content); 
-        document.querySelector(".quote").textContent = data.content
+        document.querySelector(".quote").textContent = data.results[0].summary_short;
+        document.querySelector(".revtitle").textContent = data.results[0].display_title;
+
+        console.log(data)
+        document.querySelector(".revlink").innerHTML = "<a href='" + data.results[0].link.url + "' class='revlinktext'>" + data.results[0].link.suggested_link_text + "</a>";
+
 
     })
 
 }
-
 
 getQuote();
 
