@@ -179,6 +179,11 @@ var getQuote = function () {
 }
 
 var loadHistory = function () {
+
+    if (searchHistoryData.length > 0) {
+        document.querySelector(".suggestionbox").setAttribute("style", "display:block");
+    }
+
     for (var i = 0; i < searchHistoryData.length; i++) {
         console.log(searchHistoryData[i]);
 
@@ -186,9 +191,6 @@ var loadHistory = function () {
         var searchSuggestion = document.createElement("li");
         searchSuggestion.textContent = searchHistoryData[i];
         suggestionListEl.appendChild(searchSuggestion);
-
-        document.querySelector(".suggestionbox").setAttribute("style", "display:block")
-
     }
 }
 
