@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
 h1 {
     font-size: 34px;
 }
@@ -19,10 +26,6 @@ h5 {
     font-weight: bolder;
 }
 
-.container {
-    max-width: 1140px;
-}
-
 .branding img {
     width: 250px;
 }
@@ -36,7 +39,7 @@ h5 {
 
 body {
     padding-top: 20px;
-    font-family: 'montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif !important;
     color: white;
     font-weight: normal;
 }
@@ -46,10 +49,14 @@ span {
     margin-top: 0px;
 }
 
+header {
+    color: black
+}
+
 .hero {
     display: flex;
     background-color: #94D243;
-    padding: 20px;
+    padding: 20px 0px 20px 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     border-width: 2px;
@@ -83,13 +90,8 @@ li {
 }
 
 .search-col1 {
-    flex: 1 600px;
+    flex: 1 800px;
 }
-
-/* .row {
-    padding-right: 70px;
-    padding-left: 70px;
-} */
 
 .hero .heading {
     display: block;
@@ -121,16 +123,12 @@ li {
 
 .col1 .heading {
     display: flex;
+    background-color: #AE50DA;
     margin-bottom: 10px;
 }
 
-.col1 h3 {
-    background-color: #AE50DA;
-    margin-bottom: 0px;
-}
-
-.gentitle {
-    margin-bottom: 0px;
+.heading h3 {
+    font-size: 20px;
 }
 
 .worsttitle {
@@ -150,7 +148,8 @@ li {
     border-style: none;
     border-radius: 5px;
     color: white;
-    font-size: 26px;
+    font-size: 20px;
+    margin-bottom: 10px;
     float: left;
     font-weight: bolder;
 }
@@ -159,13 +158,30 @@ li {
     padding: 5px;
 }
 
+.mflops {
+    background-color: #AE50DA;
+}
+
 .col2 .heading {
     display: block;
     background-color: #56D3E4;
+    float: left;
 }
 
 .search-col2 {
-    flex: 2;
+    flex: 2 200px;
+    margin-left: 30px;
+}
+
+.search-col2 img {
+    width: 300px;
+}
+
+.container {
+    max-width: 1140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .searches {
@@ -173,15 +189,21 @@ li {
 }
 
 .col1 {
+    padding: 20px;
+    margin-right: 20px;
+    flex: 1 50%;
+    background-color: #AE50DA;
     color: white;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
     border-color: black;
     background-image: url('../images/box-texture.png');
-    background-color: #AE50DA;
 }
 
+.shapes img {
+    width: 300px
+}
 
 
 .item {
@@ -208,3 +230,55 @@ li {
 .millfalcon {
     width: 100%;
 }
+
+.resultimage {
+
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    object-fit: cover;
+}
+
+.searchresults {
+    font-style: normal;
+    font-weight: normal;
+}
+
+.actappearsin {
+    /* font-style: italic; */
+    font-size: 14px;
+    font-weight: normal;
+    color: #7a7a7a;
+}
+
+.searchactorname {
+    font-style: normal;
+}
+
+.quote {
+    padding: 15px;
+}
+
+.confusion {
+    width: 200px
+}
+
+.modal-header {
+    background-color: #94D243;
+}
+
+.modal-footer {
+    background-color: #cdcdcd;
+}
+
+.modal-body {
+    padding-bottom: 0px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-style: italic;
+    font-weight: normal;
+    color: #dcdcdc;
+    font-size: 17px; 
+  }

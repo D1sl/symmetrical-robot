@@ -1,32 +1,29 @@
-var searchQuery = window.location.href.split("=")[1];
-console.log(searchQuery);
-var actorId
+var actorId = window.location.href.split("=")[1];
 var sourAmount = 0;
 
 
 
-var getActorId = function () {
-    var apiUrl = 'https://api.themoviedb.org/3/search/person?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&query=' + searchQuery + '&page=1';
-    console.log(apiUrl)
-    fetch(apiUrl)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data)
-                    actorId = data.results[0].id
-                    console.log(actorId);
-                    getResults(actorId);
-                    getMoviesById(actorId);
-                    getActorMovies();
-                })
-            }
+// var getActorId = function () {
+//     var apiUrl = 'https://api.themoviedb.org/3/search/person?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&query=' + searchQuery + '&page=1';
+//     console.log(apiUrl)
+//     fetch(apiUrl)
+//         .then(function (response) {
+//             if (response.ok) {
+//                 response.json().then(function (data) {
+//                     console.log(data)
+//                     actorId = data.results[0].id
+//                     console.log(actorId);
+//                     getResults(actorId);
+//                     getMoviesById(actorId);
+//                     getActorMovies();
+//                 })
+//             }
 
-        })
-}
+//         })
+// }
 
 var getResults = function (search) {
     var apiUrl = "https://api.themoviedb.org/3/person/" + search + "?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US";
-    //console.log(apiUrl)
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -46,14 +43,19 @@ var getResults = function (search) {
 
 var getMoviesById = function (id) {
 
+    console.log(actorId)
+
+    if (!actorId) {
+        window.location.href = "./index.html";
+    }
+
     var pageNumber = 1
 
     var resultListEl = document.querySelector("#resultlist");
 
-    var apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&sort_by=vote_average.asc&include_adult=false&page=' + pageNumber + '&with_people=' + id;
+    var apiUrl = 'https://api.themoviedb.org/3/discover/movie?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&sort_by=vote_average.asc&vote_count.gte=5&include_adult=false&page=' + pageNumber + '&with_people=' + actorId;
+
     console.log(apiUrl);
-
-
 
     fetch(apiUrl)
         .then(function (response) {
@@ -155,5 +157,6 @@ var getActorMovies = function () {
     })
 }
 
-getActorId();
-
+getMoviesById();
+getActorMovies();
+getResults(actorId);
