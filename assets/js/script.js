@@ -3,8 +3,7 @@ var searchButton = document.querySelector("#run-search");
 var genreListEl = document.querySelector("#genre");
 var worstItemEl = document.querySelector(".item");
 var searchResultListEl = document.querySelector(".actorsearchresults");
-
-
+var searchHistoryData = JSON.parse(localStorage.getItem('actsearchhistory')) || [];
 
 
 
@@ -17,6 +16,9 @@ var sendSearch = function (event) {
 
     // Take the value of the search textbox, trim away any spaces and assign it into a variable
     var searchQuery = searchInputEl.value.trim();
+
+    searchHistoryData.push(searchQuery);
+    localStorage.setItem('actsearchhistory', JSON.stringify(searchHistoryData));
 
     var apiUrl = 'https://api.themoviedb.org/3/search/person?api_key=c930372b21a65386f628c5e6b7d65d66&language=en-US&query=' + searchQuery + '&page=1';
 
@@ -176,8 +178,22 @@ var getQuote = function () {
 
 }
 
+var loadHistory = function () {
+    for (var i = 0; i < searchHistoryData.length; i++) {
+        console.log(searchHistoryData[i]);
+
+        var suggestionListEl = document.querySelector(".suggestions");
+        var searchSuggestion = document.createElement("li");
+        searchSuggestion.textContent = searchHistoryData[i];
+        suggestionListEl.appendChild(searchSuggestion);
+
+        document.querySelector(".suggestionbox").setAttribute("style", "display:block")
+
+    }
+}
 
 getQuote();
+loadHistory();
 
 // When an option on the list is selected
 genreListEl.addEventListener('change', getMoviesByGenre);
