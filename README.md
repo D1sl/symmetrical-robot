@@ -5,7 +5,7 @@ This application allows users to search for specific actors or actresses by name
 
 On the landing page users are also able to choose a genre from a dropdown menu, which will result in the appearance of the title, poster, rating, and review of the worst movie in that category over the past year.
 
-Lastly, we've incorporated fun Star Wars quotes onto the landing page for fun.
+Lastly, we've incorporated recent reviews from the New York Times api in the front page.
 ## Demo
 ________________
 <img src = "./assets/images/Sour Stats (1).gif">
