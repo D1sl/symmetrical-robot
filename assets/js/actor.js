@@ -73,6 +73,7 @@ var getMoviesById = function (id) {
                             //
                             // Increment amount of results by one
                             var resListEl = document.createElement('li');
+                            resListEl.className = "okay p-2 rounded-pill fs-5 list-group-item";
                             resListEl.textContent = "😊 " + data.results[i].title + ", Rating: " + data.results[i].vote_average;
 
                             if (data.results[i].vote_average < 5) {
